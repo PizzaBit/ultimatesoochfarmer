@@ -9,7 +9,7 @@ var server
 var channel
 
 client.on('ready', () => {
-  console.log('Payday bot is now online :D\n')
+  console.log('Auto sooch bot is now online :D\n')
   client.user.setActivity('https://discord.gg/cy33kkW')
   server = client.guilds.get("Server ID")
   channel = server.channels.find('name', 'bot/sooch channel name')
@@ -19,6 +19,7 @@ client.on('ready', () => {
 function sooch() {
   channel.send("s!c")
   command = "c"
+  console.log(`Sooch collected on ${Date()}`)
   setTimeout(sooch, 900000)
 }
 
@@ -54,6 +55,7 @@ client.on('message', message => {
   }
   else if (message.author.id == "411256293051858944" && command == "a") {
     if (!message.embeds[0].fields[0].value.endsWith("!")) {
+      message.embeds[0].fields[0].value.split("**")[0]
       command = ""
       return
     }
