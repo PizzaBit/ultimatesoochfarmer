@@ -1,7 +1,9 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
-const token = // Your bot/user token here
+const token = "Enter Your Token Here"
+
+const time = 900 // Time between sooch claims in seconds, default 15 minutes
 
 var command = ""
 
@@ -20,7 +22,7 @@ function sooch() {
   channel.send("s!c")
   command = "c"
   console.log(`Sooch collected on ${Date()}`)
-  setTimeout(sooch, 900000)
+  setTimeout(sooch, time * 1000)
 }
 
 client.on('message', message => {
